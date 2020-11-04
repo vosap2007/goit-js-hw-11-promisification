@@ -118,7 +118,28 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
+/* Напиши функцию delay(ms), которая возвращает промис,
+переходящий в состояние "resolved" через ms миллисекунд.
+Значением исполнившегося промиса должно быть то кол - во
+миллисекунд которое передали во время вызова функции delay.*/
+var delay = function delay(ms) {
+  return Promise.resolve("".concat(ms));
+};
+/*function logger(result) {
+    console.log(result);
+}*/
 
+
+var logger = function logger(time) {
+  return console.log("Resolved after ".concat(time, "ms"));
+}; // Вызовы функции для проверки
+
+
+delay(2000).then(logger); // Resolved after 2000ms
+
+delay(1000).then(logger); // Resolved after 1000ms
+
+delay(1500).then(logger); // Resolved after 1500ms
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -147,7 +168,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61030" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54874" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
